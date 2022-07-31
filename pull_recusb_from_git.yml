@@ -63,8 +63,8 @@
 #          group: pi
 #          mode: 0775
 
-     - name: Set GPU Memory
-        lineinfile:
+       - name: Set GPU Memory
+         lineinfile:
            dest: /etc/default/gpsd 
            regexp: '^GPSD_OPTIONS=""'
            line: 'GPSD_OPTIONS="/dev/ttyS0"
