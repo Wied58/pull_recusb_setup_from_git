@@ -66,7 +66,7 @@
         blockinfile: 
           dest: "/home/pi/.bashrc"
           block: |
-             alias pull_gonet_recusb='ansible-pull -d /home/pi/pull -i 'localhost,' -U https://github.com/Wied58/pull_recusb_from_git pull_recusb_from_git.yml'
+             alias pull_recusb='ansible-pull -d /home/pi/pull -i 'localhost,' -U https://github.com/Wied58/pull_recusb_from_git pull_recusb_from_git.yml'
    
 
 #      - name: Copy gonet4.py from git_repo to Camera
