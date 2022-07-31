@@ -1,0 +1,72 @@
+--- 
+- 
+  hosts: all
+  become: true
+  become_method: sudo
+  become_user: root
+  tasks:
+  
+
+
+      - name: install packages
+        apt:
+          name: "{{ item }}"
+          state: present
+        loop:
+           - python3-pip
+           - python3-setuptools
+           - libopenjp2-7-dev
+           - libtiff5
+
+
+      - name: install python packages
+        pip:
+          name: "{{ item }}"
+          executable: pip3
+        loop:
+           - pyserial
+           - Pillow
+           - picamera
+           - fraction
+
+
+      - name: Enable Serial Console
+        lineinfile:
+          path: /boot/config.txt
+          line: 'enable_uart=1'
+
+      - name: Enable Serial Console part 2
+        lineinfile:
+          path: /boot/config.txt
+          line: 'start_x=1'
+
+      - name: Enable Serial Console part 3
+        lineinfile:
+          path: /boot/config.txt
+          line: 'pi3-disable-bt'
+
+
+      - name: rip serial line outta cmdline.txt
+        replace:
+          path: /boot/cmdline.txt
+          regexp: "console=serial0,115200 "
+          replace: ""
+
+      - name: Copy gonet4.py from git_repo to Camera
+        copy:
+          src: /home/pi/Tools/git_repo/
+          dest: /home/pi/Tools/Camera/
+          owner: pi
+          group: pi
+          mode: 0775
+
+#     - name: Update .bashrc
+#        blockinfile: 
+#           dest: "/home/pi/.bashrc"
+#           block: |
+#             alias pull_gonet='ansible-pull -d /home/pi/pull -i 'localhost,' -U https://github.com/Wied58/pull_gonet4_from_git pull_gonet4_from_git.yml'
+   
+
+
+
+
