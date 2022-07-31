@@ -69,8 +69,8 @@
            regexp: '^GPSD_OPTIONS=""'
            line: 'GPSD_OPTIONS="/dev/ttyS0"'
 
-     - name: Update .bashrc
-        blockinfile: 
+       - name: Update .bashrc
+          blockinfile: 
            dest: "/home/pi/.bashrc"
            block: |
              alias pull_gonet_recusb='ansible-pull -d /home/pi/pull -i 'localhost,' -U https://github.com/Wied58/pull_recusb_from_git pull_recusb_from_git.yml'
