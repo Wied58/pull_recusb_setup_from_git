@@ -63,11 +63,11 @@
 #          group: pi
 #          mode: 0775
 
-       - name: Set GPU Memory
+       - name: Set gpsd to start on boot
          lineinfile:
            dest: /etc/default/gpsd 
            regexp: '^GPSD_OPTIONS=""'
-           line: 'GPSD_OPTIONS="/dev/ttyS0"
+           line: 'GPSD_OPTIONS="/dev/ttyS0"'
 
      - name: Update .bashrc
         blockinfile: 
