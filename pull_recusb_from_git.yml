@@ -17,6 +17,9 @@
            - python3-setuptools
            - libopenjp2-7-dev
            - libtiff5
+           - screen
+           - gpsd
+           - gpsd-clients
 
 
       - name: install python packages
@@ -64,7 +67,7 @@
 #        blockinfile: 
 #           dest: "/home/pi/.bashrc"
 #           block: |
-#             alias pull_gonet='ansible-pull -d /home/pi/pull -i 'localhost,' -U https://github.com/Wied58/pull_gonet4_from_git pull_gonet4_from_git.yml'
+#             alias pull_gonet='ansible-pull -d /home/pi/pull -i 'localhost,' -U https://github.com/Wied58/pull_recusb_from_git pull_recusb_from_git.yml'
    
 
 
