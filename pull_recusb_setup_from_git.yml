@@ -28,9 +28,9 @@
           executable: pip3
         loop:
            - pyserial
-           - Pillow
-           - picamera
-           - fraction
+           - smbus
+           - gps
+           - lsof
 
 
       - name: Enable Serial Console
