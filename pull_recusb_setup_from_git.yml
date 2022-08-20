@@ -20,7 +20,7 @@
            - screen
            - gpsd
            - gpsd-clients
-
+           - lsof
 
       - name: install python packages
         pip:
@@ -30,7 +30,6 @@
            - pyserial
            - smbus
            - gps
-           - lsof
 
 
       - name: Enable Serial Console
