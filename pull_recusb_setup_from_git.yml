@@ -30,7 +30,6 @@
            - pyserial
            - smbus
            - gps
-           - serial
 
 
       - name: Enable Serial Console
